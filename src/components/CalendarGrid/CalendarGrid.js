@@ -30,6 +30,17 @@ const DayWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 2px;
+`;
+
+const CurrentDay = styled.div`
+    height: 100%;
+    width: 100%;
+    background-color: #F00;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
  const CalendarGrid = ({startDay}) => {
@@ -40,6 +51,8 @@ const DayWrapper = styled.div`
     const daysArray = [...Array(42)].map(() => day.add(1, 'day').clone());
 
     console.log(daysArray);
+
+    const isCurrentDay = (day) => moment().isSame(day, 'day');
 
     return (
         <GridWrapper>
@@ -53,7 +66,8 @@ const DayWrapper = styled.div`
                         justifyContent={'flex-end'}
                     >
                         <DayWrapper>
-                            {dayItem.format('D')}
+                            {!isCurrentDay(dayItem) && dayItem.format('D')}
+                            {isCurrentDay(dayItem) &&<CurrentDay>{dayItem.format('D')}</CurrentDay>}
                         </DayWrapper>
                     </RowInCell>
                    
