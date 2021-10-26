@@ -1,10 +1,11 @@
 import React from 'react'
 
-export const Monitor = () => {
+const Monitor = () => {
     return (
         <div>
-            
+            Monitor
         </div>
     )
 }
 
+export default Monitor;
