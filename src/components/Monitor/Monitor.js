@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const DivWrapper = styled.div`
     display: flex;
     justify-content: space-between;
-    align-items: center;
     background-color: #1E1F21;
     color: #DCDDDD;
     padding: 16px;
@@ -17,6 +16,11 @@ const TextWrapper = styled.span`
 const TitleWrapper = styled(TextWrapper)`
     font-weight: bold;
     margin-right: 8px;
+`;
+
+const ButtonsWrapper = styled.div`
+    display: flex;
+    align-items: center;
 `;
 
 const ButtonWrapper = styled.button`
@@ -36,18 +40,19 @@ const TodayButton = styled(ButtonWrapper)`
     font-weight: bold;
 `;
 
-const Monitor = () => {
+const Monitor = ({today}) => {
+
     return (
         <DivWrapper>
             <div>
-                <TitleWrapper>October</TitleWrapper>
-                <TextWrapper>2021</TextWrapper>
+                <TitleWrapper>{today.format('MMMM')}</TitleWrapper>
+                <TextWrapper>{today.format('YYYY')}</TextWrapper>
             </div>
-            <div>
+            <ButtonsWrapper>
                 <ButtonWrapper>&lt;</ButtonWrapper>
                 <TodayButton>Today</TodayButton>
                 <ButtonWrapper>&gt;</ButtonWrapper>
-            </div>
+            </ButtonsWrapper>
             
         </DivWrapper>
     )

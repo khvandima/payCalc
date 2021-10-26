@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import moment from 'moment'
 
 import Header from '../Header/Header.js';
 import Monitor from '../Monitor/Monitor.js';
@@ -16,11 +17,15 @@ const ShadowWrapper = styled.div`
 `;
 
 function App() {
+
+  const today = moment();
+  const startDay = today.clone().startOf('month').startOf('week');
+
   return (
     <ShadowWrapper>
       <Header />
-      <Monitor />
-      <CalendarGrid  />
+      <Monitor today={today} />
+      <CalendarGrid  startDay={startDay} />
     </ShadowWrapper>
   );
 }

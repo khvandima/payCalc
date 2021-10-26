@@ -32,9 +32,7 @@ const DayWrapper = styled.div`
     align-items: center;
 `;
 
- const CalendarGrid = () => {
-
-    const startDay = moment().startOf('month').startOf('week');
+ const CalendarGrid = ({startDay}) => {
 
     const day = startDay.clone();
 
