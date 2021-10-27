@@ -15,6 +15,7 @@ const ShadowWrapper = styled.div`
   overflow: hidden;
   box-shadow: 0 0 0 1px #1A1A1A, 0 8px 20px 6px #888;
 `;
+moment.updateLocale('en', {week: {dow:1}})
 
 function App() {
 
@@ -41,7 +42,7 @@ function App() {
         todayHandler = {todayHandler}
         nextHandler = {nextHandler}
       />
-      <CalendarGrid  startDay={startDay} />
+      <CalendarGrid  startDay={startDay} today={today} />
     </ShadowWrapper>
   );
 }
